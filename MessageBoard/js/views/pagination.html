@@ -1,0 +1,107 @@
+﻿<div id="tops"></div>
+
+
+    <!--<div class="message row" data-ng-repeat=" topic in topics">
+
+        <div class="title span8">
+            <h4>{{topic.title}}</h4>
+
+        </div>
+
+        <div class="date span2 pull-right">
+            {{topic.created | date:"mediumDate"}}
+        </div>
+
+        <div class="span10">
+            <p>{{topic.body}}</p>
+        </div>
+        <div class="span12 toolbar">
+            <a data-ng-href="#/newReply/{{topic.id}}" class="btn btn-success">Leave another reply</a>
+
+
+        </div>
+        <div class="span10"><hr /></div>
+
+        <div class="span10 text-center"><span>Replies:</span></div>
+
+
+        <div class=" row" data-ng-repeat="reply in topic.replies">
+
+            <div class="span8">
+                <p>{{reply.body}}</p>
+            </div>
+
+            <div class="date span2 pull-right">
+                {{reply.created | date:"mediumDate"}}
+            </div>
+
+            <div class="span10"><hr /></div>
+
+        </div>
+
+
+
+    </div>-->
+
+    <div class="row well" data-ng-repeat=" topic in topics">
+
+        <div class="row">
+            <div class="title col-md-8">
+                <h4>{{topic.title}}</h4>
+
+            </div>
+
+
+            <div class="date col-md-2 pull-right">
+                {{topic.created | date:"mediumDate"}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{topic.body}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <a data-ng-href="#/newReply/{{topic.id}}" class="btn btn-success">Leave another reply</a>
+
+
+        </div>
+
+        <div class="row">
+
+            <hr />
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 text-center"><h4>Replies:</h4></div>
+
+        </div>
+
+        <div class="list-group" data-ng-repeat="reply in topic.replies">
+
+            <h4 class="list-group-item-heading">{{reply.created | date:"mediumDate"}}</h4>
+
+            <p class="list-group-item-text">{{reply.body}}</p>
+
+
+
+
+
+        </div>
+
+
+
+   
+
+
+</div>
+
+<div class="row">
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="loadMore()" data-ng-disabled="offset>=pageCount-1">Load more topics</button>
+</div>
+
+<a ng-click="gotoBottom()" class="btn btn-default pull-right" >Go to top</a>

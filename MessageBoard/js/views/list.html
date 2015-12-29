@@ -1,0 +1,125 @@
+﻿<div class="message-header">
+
+    <h1>Message Board:</h1>
+    <span>Filter trough topics:</span> 
+    <select  ng-model="topic" ng-options="topic.id as topic.title for topic in dropdown" data-ng-change="myDropDown(topic)" >
+
+        <option value="">Show all topics</option>
+
+    </select>
+
+  
+
+                                          
+
+        <p class="lead" data-ng-show="onlyTopics">Topics Count: {{count}} </p>
+        <p class="lead" data-ng-show="onlyReplies">Replies Count: {{count}} </p>
+
+        
+                                               
+
+
+
+</div>
+<div class="row addSomeMargin">
+
+    <a href="#/newTopic" class="btn btn-default">Add new Topic</a>
+</div>
+
+<div id="spinn" data-ng-show="isBusy">
+    <p class="text-center">Loading Topics....Please wait</p>
+
+    <div class="progress progress-striped">
+
+
+        <div class="bar" style="width: 100%;"></div>
+    </div>
+</div>
+
+
+
+
+<div class="messages">
+
+    <div class="row well" data-ng-repeat=" topic in topics | orderBy :'-created' ">
+
+        <div class="row">
+            <div class="title col-md-8">
+                <h4>{{topic.title}}</h4>
+
+            </div>
+
+
+            <div class="date col-md-2 pull-right">
+                {{topic.created | date:"mediumDate"}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{topic.body}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <a data-ng-href="#/newReply/{{topic.id}}" class="btn btn-success">Leave another reply</a>
+
+
+        </div>
+
+        <div class="row">
+
+            <hr />
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 text-center"><h4>Replies:</h4></div>
+
+        </div>
+
+        <div class="list-group" data-ng-repeat="reply in topic.replies">
+
+            <h4 class="list-group-item-heading">{{reply.created | date:"mediumDate"}}</h4>
+
+            <p class="list-group-item-text">{{reply.body}}</p>
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+<div class="row well"  data-ng-repeat="reply in replies" data-ng-show="replies">
+
+    
+    
+    <h4 class="list-group-item-heading">{{reply.created | date:"mediumDate"}}</h4>
+
+        <p class="list-group-item-text">{{reply.body}}</p>
+
+    
+
+
+
+
+
+
+
+
+</div>
+<a data-ng-href="#/newReply/{{topicID}}" class="btn btn-success shitt" ng-show="hideBtn">Leave another reply</a>
+
+
+
+
+

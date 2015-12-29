@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MessageBoard.Data.Topic>
+
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.InitModule = "homeindex";
+ }
+
+@section Scripts
+{
+      
+    <script src="~/js/homeIndex.js"></script>
+
+    <script src="~/js/controllers/topicsController.js"></script>
+    <script src="~/js/controllers/newTopicController.js"></script>
+    <script src="~/js/controllers/paginateController.js"></script>
+    <script src="~/js/controllers/newReplyController.js"></script>
+<script src="~/js/controllers/paginateController2.js"></script>
+
+    <script src="~/js/servcies/dataService.js"></script>
+
+
+
+
+<script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+<script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+<script src="~/Scripts/angular-strap.js"></script>
+
+<script src="~/Scripts/angular-strap.tpl.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            
+
+        });
+
+    </script>
+   
+    
+ }
+
+
+<div data-ng-view="">
+    
+    
+</div>
+
+

@@ -1,0 +1,67 @@
+﻿<div id="tops"></div>
+
+
+    
+
+    <div class="row well" ng-repeat="topic in topics">
+        <!--<div class="row well" dir-paginate="topic in topics | itemsPerPage: 2" total-items="totalTopics">-->
+
+            <div class="row">
+                <div class="title col-md-8">
+                    <h4>{{topic.title}}</h4>
+
+                </div>
+
+
+                <div class="date col-md-2 pull-right">
+                    {{topic.created | date:"mediumDate"}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>{{topic.body}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <a data-ng-href="#/newReply/{{topic.id}}" class="btn btn-success">Leave another reply</a>
+
+
+            </div>
+
+            <div class="row">
+
+                <hr />
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 text-center"><h4>Replies:</h4></div>
+
+            </div>
+
+            <div class="list-group" data-ng-repeat="reply in topic.replies">
+
+                <h4 class="list-group-item-heading">{{reply.created | date:"mediumDate"}}</h4>
+
+                <p class="list-group-item-text">{{reply.body}}</p>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+<!--<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>-->
+
+
+<pagination total-items="totalItems" items-per-page="2"  ng-model="currentPage" ng-change="pageChanged()"></pagination>
